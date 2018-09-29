@@ -1,17 +1,20 @@
-
+//Create list of users (array) (hard code)
 var userList = [{username: "abc@gmail.com", password: "abc"},{username: "dfg@gmail.com", password: "dfg"}
-    //hard code users
+    
 ];
 
+//Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
 var submit = document.getElementById('submit');
 var signup = document.getElementById('signup');
 var attempt = 3;
 
+// When clicking Submit button, retrieve input of username box ans password box
 submit.onclick = function(){
 
     var usernameInput = document.getElementById("username").value;
     var passwordInput = document.getElementById("password").value;
 
+// If Username and Password equals an Element in userList array return Logged-In alert.
     for (let i = 0;i < userList.length; i++) { 
         let output = "";
         if (usernameInput == userList[i].username && passwordInput == userList[i].password) {
@@ -19,6 +22,8 @@ submit.onclick = function(){
             return true;
         } 
     }
+    
+    // If input doesnt equalt array-elemnt inform user, show amount of left attempts to log in
     attempt--;
     alert("Username or password invalid or non-existent. You have " + attempt + " attempts left.");
     if (attempt == 0) {
@@ -28,8 +33,11 @@ submit.onclick = function(){
         alert ("access denied");
         return false;
     }
+    //TO BE IMPLEMENTED: When access denied show sign up /register button and lead to registration page
     }
+// TO BE IMPLEMENTED: Signup form. Create sign up button that leads to sign up page
 
+// On sign up page implement sign up form. 
 signup.onclick = function(){
 
         var newUsername = document.getElementById("newUsername").value;
@@ -40,69 +48,14 @@ for (let i = 0;i < userList.length; i++) {
     if (newUsername == userList[i].username) {
         alert ("Already existing user");
     } 
-    /*else {
-        alert ("please enter password");*/
-    }
+}
 if (newPassword === repeatPassword && newPassword != "") {
     alert ("You are signed up now"); userList.push({username: newUsername, password: newPassword})
 } else {
+    // TO BE IMPLEMENTED: can we make a red alert saying " password input doesnt match"
     alert ("Please enter password or repeat password");
+    }
 }
-    //userList.push({username: newUsername, password: newPassword});
-}
 
 
-    //login();
-
-/*console.log(userList);
-
-
-var submit = document.getElementById('submit');
-
-submit.onclick = function(){
-  console.log("Button is clicked");
-//check value using id for both username and password
- 
-
-
-for (i = 0; ;i++) {
-     if va
- }
-
-
-
-
-};
-
-//1. Name empty boxes - done
-
-//2. Type in email
-
-
-for (i = 0; ;i++) {
-    var user = 20180924_indx.html.getElementById("username").value;
-    var password = 20180924_index.html.getElementById("password").value;
-} 
-
-
-// a) email is incorrect
-//--> output: email or password is incomplete if email is incorrect/missing or password is incorrect/missing
-//b) email is not part of the list
-// --> output: email or password is incomplete if email is incorrect/missing or password is incorrect/missing
-// c) mail is correct
-// --> log in
-
-//3. Type in password
-// a) password is incorrect
-//--> output: email or password is incomplete if email is incorrect/missing or password is incorrect/missing
-//b) password is not part of the list
-// --> output: email or password is incomplete if email is incorrect/missing or password is incorrect/missing
-// c) password is correct
-// --> log in
-
-// 4. Implement a signup button
-// _> if person signs up push email to userList and password to passwordList
-
-//5. Limit tries
-
-*/
+   
