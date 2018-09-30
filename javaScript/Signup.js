@@ -18,7 +18,7 @@ for (let i = 0;i < userList.length; i++) {
 if (newPassword === repeatPassword && newPassword != "") {
     alert ("You are signed up now"); userList.push({username: newUsername, password: newPassword})
 } 
-//CHECK: How do I implement a button in You are signed up alert saying " Go to
+//CHECK: How do I implement a button in You are signed up alert saying " Go to sign up" or after alert, just jump to login html!!
 else {
     // TO BE IMPLEMENTED: can we make a red alert saying " password input doesnt match"
     alert ("Please enter password or repeat password");
