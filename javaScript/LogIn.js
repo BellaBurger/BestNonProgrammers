@@ -1,6 +1,5 @@
 //Create list of users (array) (hard code)
-var userList = [{username: "abc@gmail.com", password: "abc"},{username: "dfg@gmail.com", password: "dfg"}
-    
+var userList = [{username: "admin", password: "admin"},{username: "user", password: "user"}
 ];
 
 //Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
@@ -18,7 +17,7 @@ submit.onclick = function(){
     for (let i = 0;i < userList.length; i++) { 
         let output = "";
         if (usernameInput == userList[i].username && passwordInput == userList[i].password) {
-            alert ("logged in"); 
+            document.location.href = "mainPage.html"; 
             return true;
         } 
     }
