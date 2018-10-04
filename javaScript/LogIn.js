@@ -1,4 +1,5 @@
 //Create list of users (array) (hard code)
+// PUT it in usersDB now 
 var userList = [{username: "admin", password: "admin"},{username: "user", password: "user"}
 ];
 
