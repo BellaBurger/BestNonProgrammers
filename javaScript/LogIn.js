@@ -1,7 +1,7 @@
 //Create list of users (array) (hard code)
 // PUT it in usersDB now 
-var userList = [{username: "admin", password: "admin"},{username: "user", password: "user"}
-];
+//var userList = [{username: "admin", password: "admin"},{username: "user", password: "user"}
+//];
 
 //Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
 var submit = document.getElementById('submit');
