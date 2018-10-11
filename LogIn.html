@@ -8,6 +8,12 @@
 <link rel="stylesheet" href="CSS/LogIn.css">
 
 <body>
+    <!-- script for having a local storage in your console of users and passwords in the userlist-->
+<script>
+    var userListString = JSON.stringify(userList)
+    console.log(userListString)
+    localStorage.setItem("User", userListString)
+    </script>
 
 <h1>WELCOME TO FLEAFLOW</h1>
 <p>Sign-in to FLEAFLOW</p>
