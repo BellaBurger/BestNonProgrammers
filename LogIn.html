@@ -8,28 +8,106 @@
 <link rel="stylesheet" href="CSS/LogIn.css">
 
 <body>
+<h1>WELCOME TO FLEAFLOW</h1>
+<div class="float-left" style="width:49%; float: left;">
+<!-- Initialize Facebook-->
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '244846016204786',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v3.1'
+          });
+            
+          //FB.AppEvents.logPageView();   
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+                });
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         function statusChangeCallback(response) {
+             if(response.status === "connected") {
+                 window.location.href = "mainPage.html"
+                 console.log("User is logged in and authorized")
+             } else {
+                console.log("User is not authorized")
+             }
+         }
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+              statusChangeCallback(response);
+            });
+        }
+
+      </script>
     <!-- script for having a local storage in your console of users and passwords in the userlist-->
-<script>
+    <script>
+
     var userListString = JSON.stringify(userList)
     console.log(userListString)
     localStorage.setItem("User", userListString)
     </script>
 
-<h1>WELCOME TO FLEAFLOW</h1>
-<p>Sign-in to FLEAFLOW</p>
 
+<p></p>
+Sign-in to FLEAFLOW
 <form>
 <p></p>
 Username
 <input type="text" placeholder="Username" name="username" id="username"/>
+<p></p>
 Password
 <input type="password" placeholder="Password" name="password" id="password" /> </h2>
-<br>
+<p></p>
 <input type="button" value="Login" name="submit" id="submit" />
 </form>
 <p>
+<!-- Log-in button facebook-->
+<div>
+    <label>
+        Sign in with: 
+        <fb:login-button 
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+        </fb:login-button>
+    </label>
+</div>
+</div>
+</p>
+<div class="float-right" style="width:49%; float: right;"></div>
+<!-- Sign-up button -->
+<p></p>
+<b>Sign-up to join FLEAFLOW</b>
+<p> Username
+<input type="text" placeholder="Username" name="username" id="newUsername"/> </p>
+<p>Your Password
+<input type="password" placeholder="Password" name="password" id="newPassword" />
+<p></p>
+Repeat Password
+<input type="password" placeholder="Repeat Password" name="password" id="repeatPassword" />
+<p></p>
+<input type="button" value="Sign-up" name="signup" id="signup" />
+<span id="loginResult"></span> </p>
+<br>
+<!--<input type="button" value="Back to Log-In" name="backToLogin" id="backToLogin" /> 
+-->
+<script src="javaScript/Signup.js"></script>
+<p>
+<!--    Sign up 
 <input type="button" value="Sign-up Form" name="Sign-up Form" id="signupForm" onClick="location.href='signup.html'" />
+-->
 </p>
 <script src="javaScript/LogIn.js"></script>
+</div>
 </body>
 </html>

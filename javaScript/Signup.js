@@ -29,5 +29,4 @@ backToLogin.onclick = function() {
     document.location.href = "LogIn.html"
 }
 
-
    

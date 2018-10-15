@@ -31,5 +31,10 @@ submit.onclick = function(){
     //TO BE IMPLEMENTED: When access denied show sign up /register button and lead to registration page
     }
 
-
-   
+/* IMPLEMENT: Press Enter key to submit Sign-in and Sign-up from
+usernameInput.addEventListener("keypress", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13)
+        submit.click();
+});
+   */
