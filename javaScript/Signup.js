@@ -6,7 +6,7 @@ var backToLogin = document.getElementById('backToLogin');
 signup.onclick = function(){
 
         var newUsername = document.getElementById("newUsername").value
-        ValidateEmail(newUsername)
+        var validMail = ValidateEmail(newUsername)
         var newPassword = document.getElementById("newPassword").value
         var repeatPassword = document.getElementById("repeatPassword").value
 
@@ -18,9 +18,13 @@ for (let i = 0;i < userList.length; i++) {
     } 
 }
 // Log-In if passwords match and Emailaddress valid.  
-if (newPassword === repeatPassword && newPassword != "" && ValidateEmail == "true") {
+if (newPassword === repeatPassword && newPassword != "" && validMail == true) {
     document.location.href = "mainPage.html" ; userList.push({username: newUsername, password: newPassword})
 } 
+console.log(newPassword)
+console.log(repeatPassword)
+console.log(ValidateEmail)
+
 if (newPassword != repeatPassword || newPassword == "") {
     alert ("Password invalid");
     }

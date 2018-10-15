@@ -5,6 +5,7 @@
     <title>Login function</title>
     <script src="javaScript/usersDB.js"></script>
     
+    
 </head>
 <link rel="stylesheet" href="CSS/LogIn.css">
 
@@ -92,6 +93,7 @@ value="Login"
 name="submit" 
 id="submit" />
 </form>
+<script src="javaScript/LogIn.js"></script>
 <p>
 <!-- Log-in button facebook
 <div>
@@ -106,10 +108,10 @@ id="submit" />
 -->
 </div>
 </p>
-
 <!--Right side of Page: Sign-up Form-->
 <div class="float-right" style="width:49%; float: right;">
 <p></p>
+
 <b>Sign-up to join FLEAFLOW</b>
 
 <p> Username
@@ -144,17 +146,16 @@ type="button"
 value="Sign-up" 
 name="signup" 
 id="signup" />
-<!--<span id="loginResult"></span> </p>-->
+<span id="loginResult"></span> </p>
 <br>
 <!--<input type="button" value="Back to Log-In" name="backToLogin" id="backToLogin" /> 
 -->
-<script src="javaScript/Signup.js"></script>
 <p>
 <!--    Sign up 
 <input type="button" value="Sign-up Form" name="Sign-up Form" id="signupForm" onClick="location.href='signup.html'" />
 -->
 </p>
-<script src="javaScript/LogIn.js"></script>
+
 <!-- Box for visualizing Password requirements-->
 <div id="message" class="float-right" style="width:49%; float: right;">
         <h3>Password must contain the following:</h3>
@@ -164,7 +165,7 @@ id="signup" />
         <p id="length" class="invalid">Minimum <b>8 characters</b></p>
         <script src="javaScript/pwValidation.js"></script>
         </div>
+<script src="javaScript/Signup.js"></script>
 </div>
-
 </body>
 </html>

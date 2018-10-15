@@ -31,7 +31,7 @@ submit.onclick = function(){
     //TO BE IMPLEMENTED: When access denied show sign up /register button and lead to registration page
     }
 
-//IMPLEMENT: Press Enter key to submit Sign-in -->Sign-up from
+//IMPLEMENT: Press Enter key to submit Sign-in -->Login from
 document.getElementById("username").addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode == 13)
