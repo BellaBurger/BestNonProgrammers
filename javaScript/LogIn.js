@@ -25,16 +25,20 @@ submit.onclick = function(){
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
         document.getElementById("submit").disabled = true;
-        alert ("access denied");
+        alert ("access denied, please register as new user");
         return false;
     }
     //TO BE IMPLEMENTED: When access denied show sign up /register button and lead to registration page
     }
 
-/* IMPLEMENT: Press Enter key to submit Sign-in and Sign-up from
-usernameInput.addEventListener("keypress", function(event) {
+//IMPLEMENT: Press Enter key to submit Sign-in -->Sign-up from
+document.getElementById("username").addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode == 13)
         submit.click();
 });
-   */
+document.getElementById("password").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13)
+        submit.click();
+});
