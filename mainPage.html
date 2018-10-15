@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
+<link rel="stylesheet" href="CSS/LogIn.css">
 <body>
 <h1>Welcome to FLEAFLOW</h1>
 <style>
@@ -24,7 +24,7 @@
                 }
     </style>
 <!-- Implement map, link to Google */-->
-<div id="map"></div>
+<div id="map" class="float-left" style="width:49%; float: left;"></div>
     <script>
     var map;
         function initMap() {
@@ -36,5 +36,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkK7OZ1lHZ7aSqvmhJT0SsP8sc7QmR7g4&callback=initMap"
     async defer></script>  
+    <div id="right" class="float-right" style="width:49%; float: right;">
+    List of Fleamarkets 
+    </div>
 </body>
 </html>

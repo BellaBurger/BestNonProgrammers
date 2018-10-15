@@ -10,11 +10,13 @@
 }
 
 /* Style the submit button */
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+#submit {
+    width: 20%;
 }
 
+#signup {
+    width: 20%;
+}
 /* Style the container for inputs */
 .container {
     background-color: #f1f1f1;
@@ -57,3 +59,8 @@ input[type=submit] {
     left: -35px;
     content: "\2716";
 } 
+
+body {
+    height: 100%;
+    background: linear-gradient(90deg, rgb(245, 205, 212) 50%, rgb(225, 226, 226) 50%);
+}
