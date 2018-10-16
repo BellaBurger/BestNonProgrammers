@@ -1,8 +1,13 @@
 var wishlist = document.getElementById('wishlist');
+var logout = document.getElementById("logout");
 
 wishlist.onclick = function() {
     document.location.href = "Wishlist.html"; 
 } 
+
+logout.onclick = function() {
+    document.location.href = "LogIn.html"; 
+}
 
 var map;
 function initMap() {
