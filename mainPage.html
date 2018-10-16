@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="CSS/mainPage.css">
+    
+    
 </head>
-<link rel="stylesheet" href="CSS/LogIn.css">
+
 <body>
-<h1>Welcome to FLEAFLOW</h1>
-<style>
-    /* Show map with default Setting Copenhagen - Only for development purpose as billing is disabled*/
-    /* Map style - height and width */
-    #map {
-        height: 100%; 
-        width: 50%;
-        }
-    /* Optional: Makes the sample page fill the window. */
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-                }
-    </style>
-<!-- Implement map, link to Google */-->
-<div id="map" class="float-left" style="width:49%; float: left;"></div>
-    <script>
-    var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 55.676098, lng: 12.568337},
-            zoom: 8
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkK7OZ1lHZ7aSqvmhJT0SsP8sc7QmR7g4&callback=initMap"
-    async defer></script>  
-    <div id="right" class="float-right" style="width:49%; float: right;">
-    List of Fleamarkets 
+<div id="Container">
+   
+    <div id="Header">
+    <h1>Welcome to FLEAFLOW</h1>
+
+    <input 
+    type="button" 
+    value="wishlist" 
+    name="wishlist" 
+    id="wishlist" />
+    <script src="javaScript/mainPage.js"></script>
     </div>
+
+    <div id="Body">
+        <!-- Implement map, link to Google */-->
+        <div id="map" class="float-left" style="width:49%; float: left;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkK7OZ1lHZ7aSqvmhJT0SsP8sc7QmR7g4&callback=initMap"
+        async defer></script>  
+
+        <!-- Implement scroll-down list of Fleamarkets-->    
+        <div id="right" class="float-right" style="width:49%; float: right;">
+        List of Fleamarkets 
+        <input 
+        type="text" 
+        id="myInput" 
+        onkeyup="myFunction()" 
+        placeholder="Search for fleamarkets..">
+        <table id="myTable">
+                <thead>
+                    <tr>
+                        <th><b>Name</b></th>
+                        <th><b>Location</b></th>
+                        <th><b>Date</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fleamarket 1</td>
+                        <td>Copenhagen</td>
+                        <td>11.11.18</td>
+                    </tr>
+                    <tr>
+                        <td>Fleamarket 2</td>
+                        <td>Copenhagen</td>
+                        <td>12.12.18</td>
+                    </tr>
+                    <tr>
+                        <td>Fleamarket 3</td>
+                        <td>Copenhagen</td>
+                        <td>01.01.19</td>
+                    </tr>
+                    <tr>
+                        <td>Fleamarket 4</td>
+                        <td>Copenhagen</td>
+                        <td>02.02.19</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    <input 
+    type="button" 
+    value="logout" 
+    name="logout" 
+    id="logout" />
+
+
+
+</div>
 </body>
 </html>

@@ -9,7 +9,7 @@
     margin-bottom: 16px;
 }
 
-/* Style the submit button */
+/* Style the submit button (#.. implies that words after # are id's) */
 #submit {
     width: 20%;
 }
