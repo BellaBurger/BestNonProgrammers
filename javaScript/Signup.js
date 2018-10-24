@@ -1,6 +1,6 @@
 //Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
 var signup = document.getElementById('signup');
-var backToLogin = document.getElementById('backToLogin');
+//var backToLogin = document.getElementById('backToLogin');
  
 // On sign up page implement sign up form. 
 signup.onclick = function(){

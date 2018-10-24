@@ -53,3 +53,30 @@ body {
     background-color: black;
     color: white
 }
+
+#logout {
+    float: right;
+    width: 20%;
+    background-color: black;
+    color: white
+}
+
+#myTable {
+    table-layout: auto;
+    width: 100%;  
+    cursor: pointer;
+  }
+/* Can this code be implemented in table?
+  .list li:hover:after,
+  .list li.fav:after {
+    content: ' \2605';
+    color: rgb(255, 203, 0);
+  }
+  .list li.fav:hover:after {
+    content: ' \2606';
+  }
+  */
+
+th {
+    border: 1px solid black;
+ }

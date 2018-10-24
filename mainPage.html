@@ -7,32 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/mainPage.css">
-    
-    
+    <!-- Implement button in table
+    <link rel="stylesheet" href="CSS/wishlistButton.css">
+     <script src="javaScript/wishlistButton.js"></script>
+    -->
 </head>
 
 <body>
 <div id="Container">
    
     <div id="Header">
-    <h1>Welcome to FLEAFLOW</h1>
+    <h1> Welcome to FLEAFLOW</h1>
 
     <input 
     type="button" 
-    value="wishlist" 
+    value="Go to Wishlist" 
     name="wishlist" 
     id="wishlist" />
-    <script src="javaScript/mainPage.js"></script>
     </div>
 
     <div id="Body">
-        <!-- Implement map, link to Google */-->
+        
+<!-- Implement map, link to Google */-->
+        
         <div id="map" class="float-left" style="width:49%; float: left;"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkK7OZ1lHZ7aSqvmhJT0SsP8sc7QmR7g4&callback=initMap"
         async defer></script>  
 
-        <!-- Implement scroll-down list of Fleamarkets-->    
+<!-- creat button to add line-items -->   
         <div id="right" class="float-right" style="width:49%; float: right;">
+<!-- Implement list of Fleamarkets-->  
         List of Fleamarkets 
         <input 
         type="text" 
@@ -45,45 +49,26 @@
                         <th><b>Name</b></th>
                         <th><b>Location</b></th>
                         <th><b>Date</b></th>
+                        <th>Add to your Wishlist</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fleamarket 1</td>
-                        <td>Copenhagen</td>
-                        <td>11.11.18</td>
-                    </tr>
-                    <tr>
-                        <td>Fleamarket 2</td>
-                        <td>Copenhagen</td>
-                        <td>12.12.18</td>
-                    </tr>
-                    <tr>
-                        <td>Fleamarket 3</td>
-                        <td>Copenhagen</td>
-                        <td>01.01.19</td>
-                    </tr>
-                    <tr>
-                        <td>Fleamarket 4</td>
-                        <td>Copenhagen</td>
-                        <td>02.02.19</td>
-                    </tr>
                 </tbody>
                 <tfoot>
                 </tfoot>
             </table>
-
+           
         </div>
     </div>
     
+    <div id="Footer">
     <input 
     type="button" 
-    value="logout" 
+    value="Logout" 
     name="logout" 
     id="logout" />
-    <script src="javaScript/mainPage.js"></script>
-
-
+    </div>
 </div>
+<script src="javaScript/mainPage.js"></script>
 </body>
 </html>

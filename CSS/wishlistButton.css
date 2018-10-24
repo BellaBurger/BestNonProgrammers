@@ -1,0 +1,44 @@
+
+.button{
+	width: 50px;
+	height: 50px;
+  top:50%;
+  position: fixed;
+	left: 50%;
+	margin-top: -45px;
+	margin-left: -50px;
+	border-radius: 5px;
+	background: none;
+	cursor: pointer;
+	transition: background 0.5s ease;
+}
+.button:hover{
+
+}
+.active#listButton:before,.active#listButton:after{
+	background: red !important;
+}
+#listButton {
+    width: 100px;
+    height: 90px;
+    transition: background 0.5s ease;
+}
+#listButton:before,
+#listButton:after {
+	transition: background 0.5s ease;
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: dimgrey;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#listButton:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
