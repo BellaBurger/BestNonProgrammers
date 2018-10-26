@@ -4,12 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="javaScript/mainPage.js"></script>
-    <script src="javaScript/wishlist.js"></script>
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="CSS/wishlist.css">
 </head>
 <body>
+<div id="Container" class="float-center" style="float: center;">
+
+<div id="Header" style="height: 10%">
     Welcome to your wishlist
+    </div>
+    <div id="Body" style="height: 60%">
+    <input 
+    type="text" 
+    id="myInput" 
+    onkeyup="myFunction()" 
+    placeholder="Search for wishes..">
+    <table id="myTable">
+            <thead>
+                <tr>
+                    <th><b>Name</b></th>
+                    <th><b>Location</b></th>
+                    <th><b>Date</b></th>
+    <!-- Remove from local storage & List onclick-->
+                    <th>Remove from Wishlist</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+       
+    </div>
+    <div id="Footer">
+        <input
+        type="button"
+        id="logout"
+        name="logout"
+        value="logout">
+        <script src="javaScript/wishlist.js"></script>
+    </div>
+</div>
 
     
 </body>

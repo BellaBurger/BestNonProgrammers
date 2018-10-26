@@ -14,56 +14,6 @@
 
 <!--Left side of Page-->
 <div id=left class="float-left" style="width:49%; float: left;">
-<!-- Initialize Facebook
-    <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '244846016204786',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.1'
-          });
-            
-          //FB.AppEvents.logPageView();   
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-                });
-        };
-      
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "https://connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-
-         function statusChangeCallback(response) {
-             if(response.status === "connected") {
-                 window.location.href = "mainPage.html"
-                 console.log("User is logged in and authorized")
-             } else {
-                console.log("User is not authorized")
-             }
-         }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-              statusChangeCallback(response);
-            });
-        }
-    
-      </script>
-      -->
-    <!-- script for having a local storage in your console of users and passwords in the userlist-->
-
-    <!--Display hardcoded useres in console-->
-    <script>
-
-    var userListString = JSON.stringify(userList)
-    console.log(userListString)
-    localStorage.setItem("User", userListString)
-    </script>
 
 <p></p>
 Sign-in to FLEAFLOW
@@ -95,19 +45,9 @@ id="submit" />
 </form>
 <script src="javaScript/LogIn.js"></script>
 <p>
-<!-- Log-in button facebook
-<div>
-    <label>
-        Sign in with: 
-        <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-        </fb:login-button>
-    </label>
-</div>
--->
 </div>
 </p>
+
 <!--Right side of Page: Sign-up Form-->
 <div id=right class="float-right" style="width:49%; float: right;">
 <p></p>
@@ -119,7 +59,7 @@ id="submit" />
 type="text" 
 placeholder="Username" 
 name="username" 
-id="newUsername"/> 
+id="newUsername"/>
 </p>
 
 <p>Your Password
@@ -148,12 +88,8 @@ name="signup"
 id="signup" />
 <span id="loginResult"></span> </p>
 <br>
-<!--<input type="button" value="Back to Log-In" name="backToLogin" id="backToLogin" /> 
--->
 <p>
-<!--    Sign up 
-<input type="button" value="Sign-up Form" name="Sign-up Form" id="signupForm" onClick="location.href='signup.html'" />
--->
+
 </p>
 
 <!-- Box for visualizing Password requirements-->

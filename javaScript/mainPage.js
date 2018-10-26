@@ -19,33 +19,32 @@ class Fleamarket {
 
 var list = [];
 list.push(new Fleamarket("Flmrkt1", "Nørrebro", new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt2", "Nørrebro", new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt3", "Nørrebro", new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt4", "Nørrebro", new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket("Flmrkt2", "Sydhavn", new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket("Flmrkt3", "Frederiksberg", new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket("Flmrkt4", "Valby", new Date(2018, 11, 24, 10, 33, 30, 0), null));
 
 var html = "";
 for(i=0; i < list.length; i++ ){
     html += list[i].createHTML();
 }
 
-table = document.getElementById("myTable");
-tbody = table.getElementsByTagName("tbody");
+table = document.getElementById('myTable');
+tbody = table.getElementsByTagName('tbody');
 tbody[0].innerHTML = html;
 
 
-var buttons = document.getElementsByClassName("addToList");
+var buttons = document.getElementsByClassName('addToList');
 
 // Get the list of wishes from localstorage and parse it from json to array
 var wishes = [];
 
-
 for(u=0; u < buttons.length; u++){
-    buttons[u].addEventListener("click", function(e){
+    buttons[u].addEventListener('click', function(e){
 
         // Push wish to array
         wishes.push(JSON.parse(this.dataset.object));
         var listString = JSON.stringify(wishes);
-    localStorage.setItem("wishes", listString);
+        localStorage.setItem('wishes', listString);
 
     // check if there are duplicates, etc.. 
 
@@ -58,11 +57,11 @@ for(u=0; u < buttons.length; u++){
 }
 
 wishlist.onclick = function() {
-    document.location.href = "Wishlist.html"; 
+    document.location.href = 'Wishlist.html'; 
 } 
 
 logout.onclick = function() {
-    document.location.href = "LogIn.html"; 
+    document.location.href = 'LogIn.html'; 
 }
 
 var map;
@@ -76,19 +75,19 @@ function initMap() {
 function myFunction() {
     // Declare variables
     var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
+    input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
+    table = document.getElementById('myTable');
+    tr = table.getElementsByTagName('tr');
   
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName('td')[0];
       if (td) {
         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
         } else {
-          tr[i].style.display = "none";
+          tr[i].style.display = 'none';
         }
       }
     }
