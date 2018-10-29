@@ -1,22 +1,23 @@
 //Display what's in the local storage
-//console.log(localStorage);
 // Retrieve information with key "wishes" from local storage and change it back into an array of objects with parse
 
+/*DO I even need to parse it ? or leave it as string? */  
 var listItems = [];
+//listItems.push(localStorage.getItem("wishes"));
 listItems.push(JSON.parse(localStorage.getItem("wishes")));
 console.log(listItems);
-
+alert(listItems)
 
 function createHTML(){
-  return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + this.button + "</td></tr>";
+return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + this.button + "</td></tr>";
 }
 
 // ISSUE : listItmes not a function - do I have to assign var listItems to a class ( see mainPage)?
 var html = "";
 for(i=0; i < listItems.length; i++ ){
-    html += "<tr><td>"+ listItems[i].name + "</td><td>" + listItems[i].location + "</td><td>" + listItems[i].date + "</td><td>" + listItems[i].button + "</td></tr>";
+    html += listItems[i].createHTML() 
 };
-console.log(html);
+//console.log(html);
 
 table = document.getElementById('myTable');
 tbody = table.getElementsByTagName('tbody');
