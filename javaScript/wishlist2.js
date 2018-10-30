@@ -7,7 +7,7 @@ class Fleamarket {
         this.location = location;
         this.date = date;
         this.image = image;
-        //this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click'></input>";
+        this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click'></input>";
     }
 
     createHTML(){
@@ -18,7 +18,7 @@ class Fleamarket {
 
 var list = [];
 for(i=0; i < storedWishes.length; i++){
-list.push(new Fleamarket(storedWishes[i]));
+    list.push(new Fleamarket(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
 }
 console.log(list);
 
@@ -53,4 +53,33 @@ for(u=0; u < buttons.length; u++){
     //buttons[u].addEventListener("mouseover", function(e){
      //   alert("CLEVER");
     //});
+}
+
+
+
+//Search function for wishlist
+function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    table = document.getElementById('myTable');
+    tr = table.getElementsByTagName('tr');
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName('td')[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = 'none';
+        }
+      }
+    }
+  };
+
+var logout = document.getElementById('logout');
+logout.onclick = function() {
+    document.location.href = 'LogIn.html'; 
 }
