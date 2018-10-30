@@ -42,3 +42,16 @@ document.getElementById("password").addEventListener("keyup", function(event) {
     if (event.keyCode == 13)
         submit.click();
 });
+/*
+var enterPW = document.getElementById("password");
+var enterUN = document.getElementById("username");
+
+function enter(variable) {
+    variable.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13)
+        submit.click()
+       });
+       return enter(enterPW, enterUN)
+}
+*/

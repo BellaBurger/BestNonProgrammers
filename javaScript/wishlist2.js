@@ -7,7 +7,7 @@ class Fleamarket {
         this.location = location;
         this.date = date;
         this.image = image;
-        this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click'></input>";
+        this.button = "<input type='button' class='removeFromList' name='remove from list' data-object='" + JSON.stringify(this) + "' value='Remove from Wishlist'></input>";
     }
 
     createHTML(){
@@ -32,14 +32,18 @@ tbody = table.getElementsByTagName('tbody');
 tbody[0].innerHTML = html;
 
 
-var buttons = document.getElementsByClassName('addToList');
+var buttons = document.getElementsByClassName('removeFromList');
 
-// Get the list of wishes from localstorage and parse it from json to array
+// Get the list of wishes from localstorage, CHANGE CODE SO FLEAMARKET IS DELETED FROM LOCAL STORAGE
 var wishes = [];
 
-for(u=0; u < buttons.length; u++){
-    buttons[u].addEventListener('click', function(e){
+//or(u=0; u < buttons.length; u++){
+    //buttons[u].addEventListener('click', function(e){
+        //if (JSON.parse(this.dataset.object) === localStorage.getItem('wishes[i]');
+        
+       // localStorage.removeItem(JSON.parse(localStorage.getItem('wishes')));
 
+ /*       
         // Push wish to array
         wishes.push(JSON.parse(this.dataset.object));
         var listString = JSON.stringify(wishes);
@@ -49,11 +53,13 @@ for(u=0; u < buttons.length; u++){
 
         // Save list to localstorage, but remember to parse it to json first
         console.log(this);
-    }); 
+    }); */
+
+    
     //buttons[u].addEventListener("mouseover", function(e){
      //   alert("CLEVER");
     //});
-}
+//}
 
 
 
@@ -82,4 +88,9 @@ function myFunction() {
 var logout = document.getElementById('logout');
 logout.onclick = function() {
     document.location.href = 'LogIn.html'; 
+}
+
+var backToPage = document.getElementById('backToPage');
+backToPage.onclick = function() {
+    document.location.href = 'mainPage.html'; 
 }
