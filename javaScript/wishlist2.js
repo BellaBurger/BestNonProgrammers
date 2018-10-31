@@ -34,32 +34,33 @@ tbody[0].innerHTML = html;
 
 var buttons = document.getElementsByClassName('removeFromList');
 
-// Get the list of wishes from localstorage, CHANGE CODE SO FLEAMARKET IS DELETED FROM LOCAL STORAGE
-var wishes = [];
-
-//or(u=0; u < buttons.length; u++){
-    //buttons[u].addEventListener('click', function(e){
-        //if (JSON.parse(this.dataset.object) === localStorage.getItem('wishes[i]');
+// On click, wish is removed from the list by updating the storedWishes variable which is then updated in the local storage
+for (u=0; u < buttons.length; u++){
+    buttons[u].addEventListener('click', function(e){
+       var name = JSON.parse(this.dataset.object).name;
+        storedWishes = storedWishes.filter(function (item) {
+            return item.name !== name;
+        });
         
-       // localStorage.removeItem(JSON.parse(localStorage.getItem('wishes')));
-
- /*       
-        // Push wish to array
-        wishes.push(JSON.parse(this.dataset.object));
-        var listString = JSON.stringify(wishes);
+        var listString = JSON.stringify(storedWishes);
         localStorage.setItem('wishes', listString);
+
+        onClick=ManualRefresh()
+        function ManualRefresh(){
+            window.location.reload();
+        }
 
     // check if there are duplicates, etc.. 
 
         // Save list to localstorage, but remember to parse it to json first
         console.log(this);
-    }); */
+    }); 
 
     
     //buttons[u].addEventListener("mouseover", function(e){
      //   alert("CLEVER");
-    //});
-//}
+    };
+
 
 
 

@@ -7,10 +7,20 @@ class Fleamarket {
         this.lng = lng;
         this.date = date;
         this.image = image;
-        this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click'></input>";
+        this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click' id='click'></input>";
+        this.note = "<input type='button' class='added' name='add to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
     }
 //This function creates a row in table in html document
     createHTML(){
+        /*for (i<0; i < list.length; i++) {
+            for (k<0; k < wishes.length; k++) {
+                if (JSON.parse(this.dataset.object).name == wishes[k].name){
+                    var display = document.getElementById("click")
+                } else { display = document.getElementById("added")
+                    }
+            }
+        }*/
+        //if fleamarket is in storage this.button = document.getElementIdby("Added to Wishlist")
         return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + this.button + "</td></tr>";
     }
 
@@ -40,26 +50,52 @@ tbody[0].innerHTML = html;
 
 var buttons = document.getElementsByClassName('addToList');
 
-// Get the list of wishes from localstorage and parse it from json to array
-var wishes = [];
+// Get the list of wishes from localstorage and parse it from json to array. If local Storage is empty use empty array, 
+var wishes;
+if (localStorage.getItem('wishes') == null) { 
+wishes = []
+} else { wishes = JSON.parse(localStorage.getItem('wishes'))
+}
 
+
+
+// Creat function that checks if item is already in local storage
+// if function = true {alert = already in wishlist}
+// else {for (U=0.....)}
+
+
+
+//if (list[i] == storedWishes[i]){
+  //   alert ("already in wishlist") 
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
+        console.log(this);
+        for (j=0; j< wishes.length; j++) {
+            if (JSON.parse(this.dataset.object).name == wishes[j].name){
+                alert ("already in wishlist");
+                return
+            } 
+        }
 
-        // Push wish to array
+        // Push wish to array and change button value
         wishes.push(JSON.parse(this.dataset.object));
         var listString = JSON.stringify(wishes);
         localStorage.setItem('wishes', listString);
-
-    // check if there are duplicates, etc.. 
+        
+        document.getElementById("click").value = "added to Wishlist";
 
         // Save list to localstorage, but remember to parse it to json first
-        console.log(this);
+        //console.log(this);
     }); 
     //buttons[u].addEventListener("mouseover", function(e){
      //   alert("CLEVER");
     //});
 }
+
+
+
+
+
 
 var wishlist = document.getElementById('wishlist');
 wishlist.onclick = function() {
@@ -133,3 +169,11 @@ function myFunction() {
     }
   }
 
+// Compare if Fleamarket is already in the localStorage. If yes, disable button to prevent duplicates.
+
+//var storedWishes = JSON.parse(localStorage.getItem('wishes'));
+
+
+//if (list[i] == storedWishes[i]) {
+//    document.getElementById("click").disabled = true;
+//
