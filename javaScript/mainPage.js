@@ -8,7 +8,7 @@ class Fleamarket {
         this.date = date;
         this.image = image;
         this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click' id='click'></input>";
-        this.note = "<input type='button' class='added' name='add to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
+        //this.note = "<input type='button' class='added' name='add to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
     }
 //This function creates a row in table in html document
     createHTML(){
@@ -82,7 +82,7 @@ for(u=0; u < buttons.length; u++){
         var listString = JSON.stringify(wishes);
         localStorage.setItem('wishes', listString);
         
-        document.getElementById("click").value = "added to Wishlist";
+        //document.getElementById("click").value = "added to Wishlist";
 
         // Save list to localstorage, but remember to parse it to json first
         //console.log(this);
