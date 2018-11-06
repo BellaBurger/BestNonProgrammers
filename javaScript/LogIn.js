@@ -18,7 +18,7 @@ submit.onclick = function(){
 //console.log(savedUser)    
 for (let i = 0;i < userList.length; i++) { 
         let output = "";
-        if (usernameInput == userList[i].username && passwordInput == userList[i].password) {
+        if (usernameInput == userList[i].userName && passwordInput == userList[i].password) {
             document.location.href = "mainPage.html"; 
             return true;
         } 
