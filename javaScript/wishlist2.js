@@ -44,7 +44,7 @@ for (u=0; u < buttons.length; u++){
         
         var listString = JSON.stringify(storedWishes);
         localStorage.setItem('wishes', listString);
-
+//automatically refresh after click
         onClick=ManualRefresh()
         function ManualRefresh(){
             window.location.reload();

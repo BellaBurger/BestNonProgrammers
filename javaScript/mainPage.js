@@ -1,6 +1,8 @@
 // Help from Henrik - Fleamarket created as class
+var display
 class Fleamarket {
-    constructor(name, location, lat, lng, date, image){
+    constructor(id, name, location, lat, lng, date, image){
+        this.id = id
         this.name = name;
         this.location = location;
         this.lat = lat;
@@ -8,21 +10,43 @@ class Fleamarket {
         this.date = date;
         this.image = image;
         this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click' id='click'></input>";
-        //this.note = "<input type='button' class='added' name='add to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
+        this.note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
     }
-//This function creates a row in table in html document
-    createHTML(){
-        /*for (i<0; i < list.length; i++) {
+//This function creates a row in table in html document - I am missing a function... ??
+    createHTML(userEvents){
+// loop through userEvents, if user has Event then display this note other this button 
+      /*for(b = 0; b < list.length; b++){
             for (k<0; k < wishes.length; k++) {
+                console.log(this);
                 if (JSON.parse(this.dataset.object).name == wishes[k].name){
-                    var display = document.getElementById("click")
-                } else { display = document.getElementById("added")
-                    }
+                     display = this.note;
+                } else {
+                    disply = this.button
+                }
+                     
             }
-        }*/
+        }
+        
+        for(u=0; u < buttons.length; u++){
+            buttons[u].addEventListener('click', function(e){
+                console.log(this);
+                for (j=0; j< wishes.length; j++) {
+                    if (JSON.parse(this.dataset.object).name == wishes[j].name){
+                        display = this.note
+                    } else {
+                        display = this.button
+                    }
+                
+                    } 
+                }
+        
+                // Save list to localstorage, but remember to parse it to json first
+                //console.log(this);
+            ); }*/
         //if fleamarket is in storage this.button = document.getElementIdby("Added to Wishlist")
         return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + this.button + "</td></tr>";
     }
+
 
 // This function creats a marker in te map for each fleamarket
     createMarker (){
@@ -30,16 +54,20 @@ class Fleamarket {
     }
 }
 
+
 //new Fleamarkets pushed to array 
 var list = [];
-list.push(new Fleamarket("Flmrkt1", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt2", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt3", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket("Flmrkt4", "Valby", 55.666290, 12.514340, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(1, "Flmrkt1", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(2, "Flmrkt2", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(3, "Flmrkt3", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(4, "Flmrkt4", "Valby", 55.666290, 12.514340, new Date(2018, 11, 24, 10, 33, 30, 0), null));
 //for every object in the array the function creatHTML is called
 var html = "";
+//when button is clicked add event to userEvents and store in local storage
+var userEvents = [];
+
 for(i=0; i < list.length; i++ ){
-    html += list[i].createHTML();
+    html += list[i].createHTML(userEvents);
 }
 
 // The table body will contain the html plus objects that were run by the createHTML function
@@ -82,7 +110,7 @@ for(u=0; u < buttons.length; u++){
         var listString = JSON.stringify(wishes);
         localStorage.setItem('wishes', listString);
         
-        //document.getElementById("click").value = "added to Wishlist";
+       //document.getElementById("click").value = "added to Wishlist";
 
         // Save list to localstorage, but remember to parse it to json first
         //console.log(this);
@@ -106,7 +134,7 @@ var logout = document.getElementById('logout');
 logout.onclick = function() {
     document.location.href = 'LogIn.html'; 
 }
-
+// Create a loop to retrieve lat and lng (coordinates) from every fleamarket
 var map;
 function initMap() {
     var cph = {lat: 55.676098, lng: 12.568337}

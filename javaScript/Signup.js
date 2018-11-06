@@ -4,36 +4,46 @@ var signup = document.getElementById('signup');
  
 // On sign up page implement sign up form. 
 signup.onclick = function(){
-
         var newUsername = document.getElementById("newUsername").value
         var validMail = ValidateEmail(newUsername)
         var newPassword = document.getElementById("newPassword").value
         var repeatPassword = document.getElementById("repeatPassword").value
 
 // Check for already existing User/Emailadress
-
 for (let i = 0;i < userList.length; i++) {
     if (newUsername == userList[i].username) {
         alert ("Already existing user");
     } 
 }
+
+// Retrieve users from local storage, and update with new User
+var newUser;
+if (localStorage.getItem('User') == null) { 
+newUser = []
+} else { newUser = JSON.parse(localStorage.getItem('User'))
+}
+
 // Log-In if passwords match and Emailaddress valid.  
 if (newPassword === repeatPassword && newPassword != "" && validMail == true) {
-    document.location.href = "mainPage.html" ; userList.push({username: newUsername, password: newPassword})
+    document.location.href = "mainPage.html" ; 
+    //TO BE IMPLEMENTED: push to an array wish then refreshes the localStorage for userDatabase
+    newUser.push({username: newUsername, password: newPassword})
 } 
 console.log(newPassword)
 console.log(repeatPassword)
 console.log(ValidateEmail)
 
+//Push newUser list to localStorage
+newUser.push(JSON.parse(this.dataset.object));
+var listString = JSON.stringify(newUser);
+localStorage.setItem('User', listString);
+
+
 if (newPassword != repeatPassword || newPassword == "") {
     alert ("Password invalid");
     }
 }
-/*Not shown on page, as login and registration are in one html now
-backToLogin.onclick = function() {
-    document.location.href = "LogIn.html"
-};
-*/
+
 //Trigger Sign-up button when Enter key is pressed
 document.getElementById("newUsername").addEventListener("keyup", function(event) {
     event.preventDefault();

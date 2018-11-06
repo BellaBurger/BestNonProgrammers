@@ -10,7 +10,13 @@ submit.onclick = function(){
     var passwordInput = document.getElementById("password").value;
 
 // If Username and Password equals an Element in userList array return Logged-In alert.
-    for (let i = 0;i < userList.length; i++) { 
+
+// Retrieve localStorage user, push to userlist and then retrieve userlist
+
+//var savedUser = localStorage.getItem("User")
+
+//console.log(savedUser)    
+for (let i = 0;i < userList.length; i++) { 
         let output = "";
         if (usernameInput == userList[i].username && passwordInput == userList[i].password) {
             document.location.href = "mainPage.html"; 
