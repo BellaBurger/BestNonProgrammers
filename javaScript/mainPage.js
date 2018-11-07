@@ -1,8 +1,12 @@
+console.log(localStorage);
+var userID = JSON.parse(localStorage.getItem('currentUser'));
+console.log(userID);
+
 // Help from Henrik - Fleamarket created as class
-var display
+//var display
 class Fleamarket {
-    constructor(id, name, location, lat, lng, date, image){
-        this.id = id
+    constructor(userID, name, location, lat, lng, date, image){
+        this.id = userID;
         this.name = name;
         this.location = location;
         this.lat = lat;
@@ -10,8 +14,14 @@ class Fleamarket {
         this.date = date;
         this.image = image;
         this.button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click' id='click'></input>";
-        this.note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
+        //this.note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
     }
+
+// Fleamarket's userID is always the current User's email. When pushed to localStorage, attributed UserID is of course also pushed to local Storage
+// When going to the wishlist, only display the fleamarkets in the local storage with the current UserID.
+// also when checking if wishlist is already in the local storage, only check the fleamarkets in local storage with the User ID
+
+
 //This function creates a row in table in html document - I am missing a function... ??
     createHTML(userEvents){
 // loop through userEvents, if user has Event then display this note other this button 
@@ -57,10 +67,10 @@ class Fleamarket {
 
 //new Fleamarkets pushed to array 
 var list = [];
-list.push(new Fleamarket(1, "Flmrkt1", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(2, "Flmrkt2", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(3, "Flmrkt3", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(4, "Flmrkt4", "Valby", 55.666290, 12.514340, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Flmrkt1", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Flmrkt2", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Flmrkt3", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Flmrkt4", "Valby", 55.666290, 12.514340, new Date(2018, 11, 24, 10, 33, 30, 0), null));
 //for every object in the array the function creatHTML is called
 var html = "";
 //when button is clicked add event to userEvents and store in local storage
@@ -99,7 +109,7 @@ for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
         console.log(this);
         for (j=0; j< wishes.length; j++) {
-            if (JSON.parse(this.dataset.object).name == wishes[j].name){
+            if (JSON.parse(this.dataset.object).name == wishes[j].name && userID[0].userName == wishes[j].id[0].userName){
                 alert ("already in wishlist");
                 return
             } 

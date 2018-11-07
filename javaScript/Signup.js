@@ -1,5 +1,15 @@
 //Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
 var signup = document.getElementById('signup');
+var existingUser = JSON.parse(localStorage.getItem('User'));
+// Retrieve users from local storage, and update with new User
+var newUser;
+if (localStorage.getItem('User') == null) { 
+newUser = []
+} else { newUser = JSON.parse(localStorage.getItem('User'))
+};
+
+var currentUser =[];
+
 //var backToLogin = document.getElementById('backToLogin');
  
 // On sign up page implement sign up form. 
@@ -8,42 +18,41 @@ signup.onclick = function(){
         var validMail = ValidateEmail(newUsername)
         var newPassword = document.getElementById("newPassword").value
         var repeatPassword = document.getElementById("repeatPassword").value
+        var validPassword = ValidatePassword(newPassword)
 
-// Check for already existing User/Emailadress
-for (let i = 0;i < userList.length; i++) {
-    if (newUsername == userList[i].username) {
+    // Check for already existing User/Emailadress
+    // TBD : dont log-in when user exists
+    for (let i = 0;i < existingUser.length; i++) {
+    if (newUsername == existingUser[i].userName) {
         alert ("Already existing user");
-    } 
-}
-
-// Retrieve users from local storage, and update with new User
-var newUser;
-if (localStorage.getItem('User') == null) { 
-newUser = []
-} else { newUser = JSON.parse(localStorage.getItem('User'))
-}
-
-// Log-In if passwords match and Emailaddress valid.  
-if (newPassword === repeatPassword && newPassword != "" && validMail == true) {
-    document.location.href = "mainPage.html" ; 
-    //TO BE IMPLEMENTED: push to an array wish then refreshes the localStorage for userDatabase
-    newUser.push({username: newUsername, password: newPassword})
-} 
-console.log(newPassword)
-console.log(repeatPassword)
-console.log(ValidateEmail)
-
-//Push newUser list to localStorage
-newUser.push(JSON.parse(this.dataset.object));
-var listString = JSON.stringify(newUser);
-localStorage.setItem('User', listString);
-
-
-if (newPassword != repeatPassword || newPassword == "") {
-    alert ("Password invalid");
+        return false;
+        } 
     }
-}
 
+    // Sign in if passwords match and Emailaddress valid.  
+    if (newPassword === repeatPassword && validPassword == true && validMail == true) {
+        document.location.href = "mainPage.html" ; 
+         //Push to an array wish then refreshes the localStorage for userDatabase
+         newUser.push({userName: newUsername, password: newPassword})
+         currentUser.push({userName: newUsername})
+    } 
+    console.log(newPassword)
+    console.log(repeatPassword)
+    console.log(ValidateEmail)
+
+    //Push newUser list to localStorage
+    var userListString = JSON.stringify(newUser);
+    localStorage.setItem('User', userListString);
+    console.log(localStorage);
+
+    var IDListString = JSON.stringify(currentUser);
+    localStorage.setItem('currentUser', IDListString);
+    console.log(localStorage);
+
+/*if (newPassword != repeatPassword || validPassword == false {
+    alert ("Password invalid");
+*/ 
+}
 //Trigger Sign-up button when Enter key is pressed
 document.getElementById("newUsername").addEventListener("keyup", function(event) {
     event.preventDefault();
@@ -76,4 +85,12 @@ function ValidateEmail(mail)
   return (false)
 }
 
-   
+// Validate password for upper/ lower case letters, length and numbers
+function ValidatePassword(password) {
+  if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(password)){
+    return (true)
+  }
+  alert("You have entered an invalid password!")
+  return (false)
+}
+  

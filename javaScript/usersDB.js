@@ -7,17 +7,26 @@ class userDatabase {
         this.userName = userName;
         this.password = password;
        
-//This function creates a row in table in html document - I am missing a function... ??
+//TO BE IMPLEMENTED: User ID should equal the index in array
+    }
+    if (userID = null) {
+        userID = indexOf(this.dataset.object)
     }
 }
 
-var userList = [];
-    userList.push(new userDatabase (0, "admin", "admin"));
-    userList.push(new userDatabase(1, "user", "user"));
-    console.log(userList);
+if(localStorage.getItem('User') == null) {
+    var userList = [];
+        userList.push(new userDatabase (0, "admin", "admin"));
+        userList.push(new userDatabase(1, "user", "user"));
+        //console.log(userList);
+        
+        var userListString = JSON.stringify(userList)
+        localStorage.setItem('User', userListString)
+} else {
+    var userList = JSON.parse(localStorage.getItem('User'))
+}
+
 
 
 //Display hardcoded useres in console
-var userListString = JSON.stringify(userList)
-console.log(userListString)
-localStorage.setItem("User", userListString)
+//console.log(userListString)

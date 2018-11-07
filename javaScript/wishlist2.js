@@ -1,12 +1,17 @@
 var storedWishes = JSON.parse(localStorage.getItem('wishes'));
 console.log(storedWishes);
 
-class Fleamarket {
-    constructor(name, location, date, image){
+var fleamarketID = JSON.parse(localStorage.getItem('currentUser'));
+//console.log(fleamarketID[0].userName);
+
+// rename it as Wish because the list is created below
+class Wishlist {
+    constructor(name, location, date, image, fleamarketID){
         this.name = name;
         this.location = location;
         this.date = date;
         this.image = image;
+        this.fleamarketID = fleamarketID;
         this.button = "<input type='button' class='removeFromList' name='remove from list' data-object='" + JSON.stringify(this) + "' value='Remove from Wishlist'></input>";
     }
 
@@ -15,11 +20,18 @@ class Fleamarket {
     }
 }
 
-
 var list = [];
+
 for(i=0; i < storedWishes.length; i++){
-    list.push(new Fleamarket(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
-}
+    //console.log(fleamarketID[0].userName)
+        if (storedWishes[i].id[0].userName == fleamarketID[0].userName) {
+            console.log('if condition true')
+        list.push(new Wishlist(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
+}}
+/*
+for(i=0; i < storedWishes.length; i++){
+    list.push(new Wishlist(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image, storedWishes[i].fleamarketID));
+}*/
 console.log(list);
 
 var html = "";
@@ -39,7 +51,12 @@ for (u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
        var name = JSON.parse(this.dataset.object).name;
         storedWishes = storedWishes.filter(function (item) {
-            return item.name !== name;
+            if(item.id[0].userName == fleamarketID[0].userName) {
+                return item.name !== name;
+            } else {
+                return item
+            }
+        
         });
         
         var listString = JSON.stringify(storedWishes);

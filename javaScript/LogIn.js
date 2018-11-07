@@ -2,6 +2,9 @@
 var submit = document.getElementById('submit');
 var signup = document.getElementById('signup');
 var attempt = 3;
+var existingUser = JSON.parse(localStorage.getItem('User'));
+var currentLogIn = [];
+console.log(existingUser);
 
 // When clicking Submit button, retrieve input of username box ans password box
 submit.onclick = function(){
@@ -16,14 +19,21 @@ submit.onclick = function(){
 //var savedUser = localStorage.getItem("User")
 
 //console.log(savedUser)    
-for (let i = 0;i < userList.length; i++) { 
+    for (let i = 0;i < existingUser.length; i++) { 
         let output = "";
-        if (usernameInput == userList[i].userName && passwordInput == userList[i].password) {
+        if (usernameInput == existingUser[i].userName && passwordInput == existingUser[i].password) {
+            currentLogIn.push({userName: usernameInput})
             document.location.href = "mainPage.html"; 
+            var IDString = JSON.stringify(currentLogIn);
+            localStorage.setItem('currentUser', IDString);
+            console.log(localStorage);
             return true;
         } 
     }
+
+
     
+
     // If input doesnt equal array-elemnt inform user, show amount of left attempts to log in
     attempt--;
     alert("Username or password invalid or non-existent. You have " + attempt + " attempts left.");
@@ -34,8 +44,8 @@ for (let i = 0;i < userList.length; i++) {
         alert ("access denied, please register as new user");
         return false;
     }
-    //TO BE IMPLEMENTED: When access denied show sign up /register button and lead to registration page
-    }
+    
+}
 
 //IMPLEMENT: Press Enter key to submit Sign-in -->Login from
 document.getElementById("username").addEventListener("keyup", function(event) {
@@ -48,16 +58,4 @@ document.getElementById("password").addEventListener("keyup", function(event) {
     if (event.keyCode == 13)
         submit.click();
 });
-/*
-var enterPW = document.getElementById("password");
-var enterUN = document.getElementById("username");
 
-function enter(variable) {
-    variable.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode == 13)
-        submit.click()
-       });
-       return enter(enterPW, enterUN)
-}
-*/
