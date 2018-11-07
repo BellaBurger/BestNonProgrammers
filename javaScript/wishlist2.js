@@ -5,7 +5,7 @@ var fleamarketID = JSON.parse(localStorage.getItem('currentUser'));
 //console.log(fleamarketID[0].userName);
 
 // rename it as Wish because the list is created below
-class Wishlist {
+class Wish {
     constructor(name, location, date, image, fleamarketID){
         this.name = name;
         this.location = location;
@@ -26,7 +26,7 @@ for(i=0; i < storedWishes.length; i++){
     //console.log(fleamarketID[0].userName)
         if (storedWishes[i].id[0].userName == fleamarketID[0].userName) {
             console.log('if condition true')
-        list.push(new Wishlist(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
+        list.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
 }}
 /*
 for(i=0; i < storedWishes.length; i++){
