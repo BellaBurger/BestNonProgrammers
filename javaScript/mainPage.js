@@ -60,10 +60,10 @@ class Fleamarket {
 
 //new Fleamarkets pushed to array 
 var list = [];
-list.push(new Fleamarket(userID, "Flmrkt1", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Flmrkt2", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Flmrkt3", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Flmrkt4", "Valby", 55.666290, 12.514340, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Nørrebro Loppemarked", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Sydhavn Fleamarket", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 25, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Frederiksberg Market", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Valby Market", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
 console.log(list)
 //for every object in the array the function creatHTML is called
 var html = "";
@@ -101,6 +101,10 @@ for(s=0; s<list.length; s++){
     }
 }
 console.log("is it working")
+
+/*buttons.forEach(function(button){
+    button.disabled = ture
+})*/
 
 //Alert ("already in wishlist") if fleamarket stored in local storage under the current user's user ID
 for(u=0; u < buttons.length; u++){
@@ -190,17 +194,33 @@ function myFunction() {
     filter = input.value.toUpperCase();
     table = document.getElementById('myTable');
     tr = table.getElementsByTagName('tr');
-  
+    th = table.getElementsByTagName('th');
+    //td = tabel.getElementsByTagName('td');
+
+    
     // Loop through all table rows, and hide those who don't match the search query
+    /*for (i = 0; i < tr.length; i++) {
+        //td = tr[i].getElementsByTagName("td")[0]; // This code only get the frist "TD" element
+        tds = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            td = tds[j];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";*/
+    
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName('td')[0];
+        tr[i].style.display = 'none';
+        for(var j=0; j<th.length; j++){
+      td = tr[i].getElementsByTagName('td')[j];
       if (td) {
         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = 'none';
-        }
+          tr[i].style.display = '';
+          break
+        } 
       }
+    }
     }
   }
 
