@@ -1,42 +1,20 @@
 var storedWishes = JSON.parse(localStorage.getItem('wishes'));
 console.log(storedWishes);
 
-var fleamarketID = JSON.parse(localStorage.getItem('currentUser'));
-//console.log(fleamarketID[0].userName);
+var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-// rename it as Wish because the list is created below
-class Wish {
-    constructor(name, location, date, image, fleamarketID){
-        this.name = name;
-        this.location = location;
-        this.date = date;
-        this.image = image;
-        this.fleamarketID = fleamarketID;
-        this.button = "<input type='button' class='removeFromList' name='remove from list' data-object='" + JSON.stringify(this) + "' value='Remove from Wishlist'></input>";
-    }
-
-    createHTML(){
-        return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + this.button + "</td></tr>";
-    }
-}
-
-var list = [];
+var wishlist = [];
 
 for(i=0; i < storedWishes.length; i++){
-    //console.log(fleamarketID[0].userName)
-        if (storedWishes[i].id[0].userName == fleamarketID[0].userName) {
+        if (storedWishes[i].id[0].userName == currentUser[0].userName) {
             console.log('if condition true')
-        list.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
+        wishlist.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
 }}
-/*
-for(i=0; i < storedWishes.length; i++){
-    list.push(new Wishlist(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image, storedWishes[i].fleamarketID));
-}*/
-console.log(list);
+console.log(wishlist);
 
 var html = "";
-for(i=0; i < list.length; i++ ){
-    html += list[i].createHTML();
+for(i=0; i < wishlist.length; i++ ){
+    html += wishlist[i].createHTML();
 }
 
 table = document.getElementById('myTable');
@@ -49,9 +27,9 @@ var buttons = document.getElementsByClassName('removeFromList');
 // On click, wish is removed from the list by updating the storedWishes variable which is then updated in the local storage
 for (u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
-       var name = JSON.parse(this.dataset.object).name;
+        var name = JSON.parse(this.dataset.object).name;
         storedWishes = storedWishes.filter(function (item) {
-            if(item.id[0].userName == fleamarketID[0].userName) {
+            if(item.id[0].userName == currentUser[0].userName) {
                 return item.name !== name;
             } else {
                 return item
@@ -61,13 +39,12 @@ for (u=0; u < buttons.length; u++){
         
         var listString = JSON.stringify(storedWishes);
         localStorage.setItem('wishes', listString);
-//automatically refresh after click
+
+        //automatically refresh after click
         onClick=ManualRefresh()
         function ManualRefresh(){
             window.location.reload();
         }
-
-    // check if there are duplicates, etc.. 
 
         // Save list to localstorage, but remember to parse it to json first
         console.log(this);
@@ -76,10 +53,7 @@ for (u=0; u < buttons.length; u++){
     
     //buttons[u].addEventListener("mouseover", function(e){
      //   alert("CLEVER");
-    };
-
-
-
+};
 
 //Search function for wishlist
 function myFunction() {

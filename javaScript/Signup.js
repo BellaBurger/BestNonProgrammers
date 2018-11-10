@@ -1,16 +1,16 @@
-//Creat submit for log-In and signup for Registration. Create amount of attempts for Log-In function
+//Signup is variable for signup button
 var signup = document.getElementById('signup');
+// Variable that refers to Users that are already in local storage
 var existingUser = JSON.parse(localStorage.getItem('User'));
-// Retrieve users from local storage, and update with new User
+// If there are now existing Users, new User array is empty. Otherwise it equaly the locally stored Users
 var newUser;
-if (localStorage.getItem('User') == null) { 
+if (existingUser == null) { 
 newUser = []
 } else { newUser = JSON.parse(localStorage.getItem('User'))
 };
 
+// Variable current User is an empty array. Se below: On sign-up, email addressinput is pushed to current user and stored in local storage
 var currentUser =[];
-
-//var backToLogin = document.getElementById('backToLogin');
  
 // On sign up page implement sign up form. 
 signup.onclick = function(){
@@ -45,13 +45,10 @@ signup.onclick = function(){
     localStorage.setItem('User', userListString);
     console.log(localStorage);
 
+    //Push currentUser list to localStorage
     var IDListString = JSON.stringify(currentUser);
     localStorage.setItem('currentUser', IDListString);
-    console.log(localStorage);
-
-/*if (newPassword != repeatPassword || validPassword == false {
-    alert ("Password invalid");
-*/ 
+    console.log(localStorage); 
 }
 //Trigger Sign-up button when Enter key is pressed
 document.getElementById("newUsername").addEventListener("keyup", function(event) {

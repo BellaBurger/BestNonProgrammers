@@ -1,32 +1,20 @@
-//var userList = [{username: "admin", password: "admin"},{username: "user", password: "user"}
-//];
-
-class userDatabase {
-    constructor(userId, userName, password){
-        this.userId = userId;
+/*class User {
+    constructor(userName, password){
         this.userName = userName;
         this.password = password;
-       
-//TO BE IMPLEMENTED: User ID should equal the index in array
     }
-    if (userID = null) {
-        userID = indexOf(this.dataset.object)
-    }
-}
+}*/
 
+
+// For user databse: check if any user already exist in local storage. If not create User and push to user list. 
 if(localStorage.getItem('User') == null) {
     var userList = [];
-        userList.push(new userDatabase (0, "admin", "admin"));
-        userList.push(new userDatabase(1, "user", "user"));
-        //console.log(userList);
-        
+        userList.push(new User ("admin", "admin"));
+        userList.push(new User("user", "user"));
+        //Then save to userlist in local storage, stringify first
         var userListString = JSON.stringify(userList)
         localStorage.setItem('User', userListString)
+        // if local storage not empty, user list equals the users already in the local storage.
 } else {
     var userList = JSON.parse(localStorage.getItem('User'))
 }
-
-
-
-//Display hardcoded useres in console
-//console.log(userListString)
