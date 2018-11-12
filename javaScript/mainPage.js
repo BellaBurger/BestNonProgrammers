@@ -4,10 +4,10 @@ console.log(userID);
 
 //New Fleamarkets created and pushed to list 
 var list = [];
-list.push(new Fleamarket(userID, "Nørrebro Loppemarked", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Nørrebro Fleamarket", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
 list.push(new Fleamarket(userID, "Sydhavn Fleamarket", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 25, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Frederiksberg Market", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Valby Market", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Frederiksberg Fleamarket", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Valby Fleamarket", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
 console.log(list)
 //for every object in the array the function creatHTML is called
 var html = "";
@@ -77,6 +77,8 @@ for(u=0; u < buttons.length; u++){
         wishes.push(JSON.parse(this.dataset.object));
         var listString = JSON.stringify(wishes);
         localStorage.setItem('wishes', listString);
+        window.location.reload();
+
     }); 
 
     //buttons[u].addEventListener("mouseover", function(e){
