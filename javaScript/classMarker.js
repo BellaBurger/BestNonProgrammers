@@ -5,3 +5,4 @@ class Marker {
         this.lng = lng;
     }
 }
+

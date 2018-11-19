@@ -1,6 +1,6 @@
  /* Style all input fields */
  input {
-    width: 100%;
+    width: 40%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -26,7 +26,7 @@
 /* The message box is shown when the user clicks on the password field */
 #message {
     display:none;
-    background: #f1f1f1;
+    background: salmon; 
     color: #000;
     position: relative;
     padding: 20px;
@@ -59,10 +59,19 @@
     position: relative;
     left: -35px;
     content: "\2716";
+    /*/2716 refers to the X sign*/
 } 
 
 body {
     font-family: 'Courier New', Courier, monospace;
     height: 100%;
-    background: linear-gradient(90deg, rgb(245, 205, 212) 50%, rgb(225, 226, 226) 50%);
+    background: white;
+    background-image: url ("fleaflow.jpg");
+
+}
+
+/*     background: linear-gradient(90deg, rgb(245, 205, 212) 50%, rgb(225, 226, 226) 50%);
+
+h1 {
+   
 }

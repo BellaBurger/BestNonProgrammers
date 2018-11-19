@@ -6,7 +6,7 @@ var existingUser = JSON.parse(localStorage.getItem('User'));
 var currentLogIn = [];
 console.log(existingUser);
 
-// When clicking Submit button, retrieve input of username box ans password box
+// When clicking Submit button, retrieve input of username box and password box
 submit.onclick = function(){
 
     var usernameInput = document.getElementById("username").value;

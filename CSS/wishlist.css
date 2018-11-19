@@ -1,19 +1,13 @@
 input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border: 2px solid rgb(77, 71, 71);
+    border-radius: 4px; 
+    box-sizing: border-box; 
     margin-top: 6px;
     margin-bottom: 16px;
-}
-/* Show map with default Setting Copenhagen - Only for development purpose as billing is disabled*/
-/* Map style - height and width */
-/* #map {
-    height: 50%; 
-    width: 50%;
-    }
-/* Optional: Makes the sample page fill the window. */
+        }
+
 html, 
 body {
     height: 100%;
@@ -23,7 +17,7 @@ body {
             }
 body {
     font-family: 'Courier New', Courier, monospace;
-    background: lightgray;
+    background: white;
 }
 
 #Container {
@@ -38,14 +32,14 @@ body {
 
 #Body {
     height: 60%;
-    background: linear-gradient(90deg, rgb(245, 205, 212) 50%, rgb(225, 226, 226) 50%);
+    background: white
 }
 
 #logout {
     float: right;
     width: 20%;
-    background-color: black;
-    color: white
+    background-color: rgb(99, 99, 218);
+    color: rgba(86, 68, 138, 0.979);
 }
 
 #myTable {
@@ -53,17 +47,7 @@ body {
     width: 100%;  
     cursor: pointer;
   }
-/* Can this code be implemented in table?
-  .list li:hover:after,
-  .list li.fav:after {
-    content: ' \2605';
-    color: rgb(255, 203, 0);
-  }
-  .list li.fav:hover:after {
-    content: ' \2606';
-  }
-  */
 
 th {
-    border: 1px solid black;
+    border: 5px solid black;
  }

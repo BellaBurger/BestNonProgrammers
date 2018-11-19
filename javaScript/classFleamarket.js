@@ -18,10 +18,12 @@ class Fleamarket {
 //This function creates a row in table in html document - I am missing a function... ??
     createHTML(userEvents){
 // loop through userEvents, if user has Event then display this note other this button 
+
+//OBS - can button & note have the same id? 
       
             var storedWishes;
-            var button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='click' id='click'></input>";
-            var note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='added' id='click'></input>";
+            var button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='Add to wishes' id='click'></input>";
+            var note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='Added' id='click'></input>";
             if (localStorage.getItem('wishes') == null) {
 
                 storedWishes = []
@@ -51,23 +53,6 @@ class Fleamarket {
                 }
             }
         
-        
-        /*for(u=0; u < buttons.length; u++){
-            buttons[u].addEventListener('click', function(e){
-                console.log(this);
-                for (j=0; j< wishes.length; j++) {
-                    if (JSON.parse(this.dataset.object).name == wishes[j].name){
-                        display = this.note
-                    } else {
-                        display = this.button
-                    }
-                
-                    } 
-                }
-        
-                // Save list to localstorage, but remember to parse it to json first
-                //console.log(this);
-            ); }*/
         //if fleamarket is in storage this.button = document.getElementIdby("Added to Wishlist")
         return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + display + "</td></tr>";
     }

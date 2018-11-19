@@ -2,14 +2,15 @@ console.log(localStorage);
 var userID = JSON.parse(localStorage.getItem('currentUser'));
 console.log(userID);
 
-//New Fleamarkets created and pushed to list 
+//New Fleamarkets created and pushed to list (List is an Array??)
 var list = [];
-list.push(new Fleamarket(userID, "Nørrebro Fleamarket", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Sydhavn Fleamarket", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 25, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Frederiksberg Fleamarket", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
-list.push(new Fleamarket(userID, "Valby Fleamarket", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Books & Bags", "Nørrebro", 55.6918268, 12.549271207226749, new Date(2018, 11, 24, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Vintage Jewelry", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 25, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Coats & Mittons", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
+list.push(new Fleamarket(userID, "Designer Classics", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
 console.log(list)
-//for every object in the array the function creatHTML is called
+
+//for every object in the array the function createHTML is called
 var html = "";
 
 //when new fleamarket is created, an html readable format is created as array (userEvents) and added to the html string (above)
@@ -48,10 +49,6 @@ for(s=0; s<list.length; s++){
 }
 console.log("is it working")
 
-/*buttons.forEach(function(button){
-    button.disabled = ture
-})*/
-
 //Add event listener for click on event. 
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
@@ -63,15 +60,7 @@ for(u=0; u < buttons.length; u++){
                 return
             } 
         }
-        /*for(u=0; u < buttons.length; u++){
-            for (j=0; j< wishes.length; j++) {
-                if (JSON.parse(this.dataset.object).name == wishes[j].name && userID[0].userName == wishes[j].id[0].userName){
-                    document.getElementById("click").value = "added to Wishlist"
-                    document.getElementById("added to Wishlist").disabled = true;
-                    return 
-                }
-            } 
-        }*/
+    
 
         // Push button information to wishes array and save to local storage
         wishes.push(JSON.parse(this.dataset.object));
@@ -80,12 +69,7 @@ for(u=0; u < buttons.length; u++){
         window.location.reload();
 
     }); 
-
-    //buttons[u].addEventListener("mouseover", function(e){
-     //   alert("CLEVER");
-    //});
 }
-
 //Forward to whishlist html when button is clicked
 var wishlist = document.getElementById('wishlist');
 wishlist.onclick = function() {
