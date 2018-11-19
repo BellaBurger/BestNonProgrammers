@@ -63,19 +63,22 @@ function myFunction() {
     filter = input.value.toUpperCase();
     table = document.getElementById('myTable');
     tr = table.getElementsByTagName('tr');
-  
-    // Loop through all table rows, and hide those who don't match the search query
+    th = table.getElementsByTagName('th');
+    
+    // Loop through all table rows, and hide those who don't match the search query 
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName('td')[0];
-      if (td) {
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = 'none';
+        tr[i].style.display = 'none';
+        for(var j=0; j<th.length; j++){
+            td = tr[i].getElementsByTagName('td')[j];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                    break
+                } 
+            }
         }
-      }
     }
-  };
+}
 
 var logout = document.getElementById('logout');
 logout.onclick = function() {
