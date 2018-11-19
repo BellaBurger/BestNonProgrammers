@@ -38,17 +38,6 @@ if (localStorage.getItem('wishes') == null) {
 } 
 console.log(wishes)
 
-//TBD disable button if fleamarket already in local storage
-for(s=0; s<list.length; s++){
-    for(t=0; t < wishes.length; t++) {
-        if (list[s].name == wishes[t].name && wishes[t].id.userName == userID[0].userName){
-            document.getElementById("click").disabled = true;
-           
-        }
-    }
-}
-console.log("is it working")
-
 //Add event listener for click on event. 
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){

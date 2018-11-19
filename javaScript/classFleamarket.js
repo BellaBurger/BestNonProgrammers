@@ -15,12 +15,9 @@ class Fleamarket {
 // also when checking if wishlist is already in the local storage, only check the fleamarkets in local storage with the User ID
 
 
-//This function creates a row in table in html document - I am missing a function... ??
+//This function creates a row in table in html document
     createHTML(userEvents){
-// loop through userEvents, if user has Event then display this note other this button 
-
-//OBS - can button & note have the same id? 
-      
+// loop through userEvents, if user has Event then display this note other this button  
             var storedWishes;
             var button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='Add to wishes' id='click'></input>";
             var note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='Added' id='click'></input>";
@@ -41,7 +38,7 @@ class Fleamarket {
                         console.log('if condition true')
                     wishlist.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
             }}
-
+// display equals button wish says add to wishlist. display equals note if fleamarket already in wishlist wish says "added"
             var display = button;
             for (var k=0; k < wishlist.length; k++) {
                 console.log(this);
@@ -52,8 +49,7 @@ class Fleamarket {
                     display = button
                 }
             }
-        
-        //if fleamarket is in storage this.button = document.getElementIdby("Added to Wishlist")
+        // output of createHTML
         return "<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>" + this.date + "</td><td>" + display + "</td></tr>";
     }
 }
