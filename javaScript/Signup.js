@@ -119,7 +119,7 @@ myInput.onkeyup = function() {
   } else {
     letter.classList.remove("valid");
     letter.classList.add("invalid");
-}
+  }
 
   // Validate capital letters
   var upperCaseLetters = /[A-Z]/g;

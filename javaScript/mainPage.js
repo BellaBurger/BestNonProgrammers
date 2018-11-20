@@ -1,6 +1,4 @@
-console.log(localStorage);
 var userID = JSON.parse(localStorage.getItem('currentUser'));
-console.log(userID);
 
 //New Fleamarkets created and pushed to list (List is an Array??)
 var list = [];
@@ -8,7 +6,6 @@ list.push(new Fleamarket(userID, "Books & Bags", "Nørrebro", 55.6918268, 12.549
 list.push(new Fleamarket(userID, "Vintage Jewelry", "Sydhavn", 55.654884, 12.537608, new Date(2018, 11, 25, 10, 33, 30, 0), null));
 list.push(new Fleamarket(userID, "Coats & Mittons", "Frederiksberg", 55.675378, 12.528474, new Date(2018, 11, 26, 10, 33, 30, 0), null));
 list.push(new Fleamarket(userID, "Designer Classics", "Valby", 55.666290, 12.514340, new Date(2018, 11, 27, 10, 33, 30, 0), null));
-console.log(list)
 
 //for every object in the array the function createHTML is called
 var html = "";
@@ -36,7 +33,6 @@ if (localStorage.getItem('wishes') == null) {
     } else { 
     wishes = JSON.parse(localStorage.getItem('wishes'))
 } 
-console.log(wishes)
 
 //Add event listener for click on event. 
 for(u=0; u < buttons.length; u++){
@@ -70,7 +66,6 @@ logout.onclick = function() {
     document.location.href = 'LogIn.html'; 
 }
 
-
 // Create markers for all fleamarkets
 var markers = [];
 
@@ -82,7 +77,6 @@ var createMarker = function(){
 for (m=0; m<list.length; m++ ){
     createMarker() 
     } 
-console.log(markers);
 
 //initialize map
 var map;
