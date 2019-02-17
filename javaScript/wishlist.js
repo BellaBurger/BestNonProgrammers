@@ -1,5 +1,5 @@
 // retrieve wishes from local storage
-var storedWishes = JSON.parse(localStorage.getItem('wishes'));
+var storedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
 //retrieve current logged in user from local storage
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 // create empty array where wishes from local storage can be pushed to
