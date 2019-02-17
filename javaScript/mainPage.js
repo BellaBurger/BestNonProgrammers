@@ -24,6 +24,7 @@ tbody[0].innerHTML = html;
 
 // Create variable the retrieves button from every fleamarket object
 var buttons = document.getElementsByClassName('addToList');
+var notes = document.getElementsByClassName('added')
 
 // Create wishes variable. Get the wishes from local storage and parse it from json to array. If wishes in local Storage is empty, use empty array for wishes. 
 var wishes;
@@ -34,7 +35,8 @@ if (localStorage.getItem('wishes') == null) {
     wishes = JSON.parse(localStorage.getItem('wishes'))
 } 
 
-//Add event listener for click on event. 
+
+//Add event listener for click on event. NOT SHOWN ANYMORE AS WE HAVE IMPLEMENTED NOTE
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e){
         console.log(this);
@@ -55,15 +57,44 @@ for(u=0; u < buttons.length; u++){
 
     }); 
 }
+
+// On click, wish is removed from the list by updating the wishes variable which is then updated in the local storage
+for (u=0; u < notes.length; u++){
+    notes[u].addEventListener('click', function(e){
+        var name = JSON.parse(this.dataset.object).name;
+        wishes = wishes.filter(function (item) {
+            if(item.id[0].userName == userID[0].userName) {
+                return item.name !== name;
+            } else {
+                return item
+            }
+        
+        });
+        
+        var listString = JSON.stringify(wishes);
+        localStorage.setItem('wishes', listString);
+
+        //automatically refresh after click
+        onClick=ManualRefresh()
+        function ManualRefresh(){
+            window.location.reload();
+        }
+
+        // Save list to localstorage, but remember to parse it to json first
+        console.log(this);
+    }); 
+};
 //Forward to whishlist html when button is clicked
 var wishlist = document.getElementById('wishlist');
 wishlist.onclick = function() {
     document.location.href = 'Wishlist.html'; 
 } 
-//Forward to LogIn html when button is clicked
+//Forward to LogIn html when button is clicked, dissable access when no current User is logged in
 var logout = document.getElementById('logout');
-logout.onclick = function() {
-    document.location.href = 'LogIn.html'; 
+logout.onclick = function() { 
+    userID = null;
+    localStorage.setItem('currentUser', JSON.stringify(userID));
+    document.location.href = 'LogIn.html';
 }
 
 // Create markers for all fleamarkets

@@ -16,5 +16,3 @@ if(localStorage.getItem('User') == null) {
 } else {
     var userList = JSON.parse(localStorage.getItem('User'))
 }
-
-// Local Storage only accepts strings

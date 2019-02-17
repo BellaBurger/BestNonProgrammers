@@ -38,12 +38,12 @@ submit.onclick = function(){
 
 //Press Enter key to submit login from
 document.getElementById("username").addEventListener("keyup", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     if (event.keyCode == 13)
         submit.click();
 });
 document.getElementById("password").addEventListener("keyup", function(event) {
-    event.preventDefault();
+   // event.preventDefault();
     if (event.keyCode == 13)
         submit.click();
 });

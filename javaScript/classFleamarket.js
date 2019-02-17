@@ -17,10 +17,10 @@ class Fleamarket {
 
 //This function creates a row in table in html document
     createHTML(userEvents){
-// loop through userEvents, if user has Event then display this note other this button  
+// loop through userEvents, if user has Event then display this note other this $$  
             var storedWishes;
             var button = "<input type='button' class='addToList' name='add to list' data-object='" + JSON.stringify(this) + "' value='Add to wishes' id='click'></input>";
-            var note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='Added' id='click'></input>";
+            var note = "<input type='button' class='added' name='added to list' data-object='" + JSON.stringify(this) + "' value='Remove from wishes' id='click'></input>";
             if (localStorage.getItem('wishes') == null) {
 
                 storedWishes = []

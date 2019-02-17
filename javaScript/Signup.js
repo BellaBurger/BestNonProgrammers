@@ -5,7 +5,7 @@ var existingUser = JSON.parse(localStorage.getItem('User'));
 // If there are now existing Users, new User array is empty. Otherwise it equaly the locally stored Users
 var newUser;
 if (existingUser == null) { 
-newUser = []
+  newUser = []
 } else { newUser = JSON.parse(localStorage.getItem('User'))
 };
 
@@ -52,17 +52,17 @@ signup.onclick = function(){
 }
 //Trigger Sign-up button when Enter key is pressed
 document.getElementById("newUsername").addEventListener("keyup", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     if (event.keyCode == 13)
         signup.click();
 });
 document.getElementById("newPassword").addEventListener("keyup", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     if (event.keyCode == 13)
         signup.click();
 });
 document.getElementById("repeatPassword").addEventListener("keyup", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     if (event.keyCode == 13)
         signup.click();
 });
@@ -119,7 +119,7 @@ myInput.onkeyup = function() {
   } else {
     letter.classList.remove("valid");
     letter.classList.add("invalid");
-  }
+  s}
 
   // Validate capital letters
   var upperCaseLetters = /[A-Z]/g;

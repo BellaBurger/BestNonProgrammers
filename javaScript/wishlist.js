@@ -5,15 +5,21 @@ var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 // create empty array where wishes from local storage can be pushed to
 var wishlist = [];
 // Push wishes to wishlist array which IDs match the username. 
-for(i=0; i < storedWishes.length; i++){
-        if (storedWishes[i].id[0].userName == currentUser[0].userName) {
-        wishlist.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
-}};
+if(storedWishes !== null){
+    for(i=0; i < storedWishes.length; i++){
+            if (storedWishes[i].id[0].userName == currentUser[0].userName) {
+            wishlist.push(new Wish(storedWishes[i].name, storedWishes[i].location, new Date(storedWishes[i].date),storedWishes[i].image));
+            }
+    }
+};
 //then create HTML for each item in the array.
-var html = "";
-for(i=0; i < wishlist.length; i++ ){
-    html += wishlist[i].createHTML();
-}
+var html = ""; 
+
+if(storedWishes !== null){
+    for(i=0; i < wishlist.length; i++ ){
+        html += wishlist[i].createHTML();
+    }
+};
 // push html string to main page HTML table
 table = document.getElementById('myTable');
 tbody = table.getElementsByTagName('tbody');
@@ -73,10 +79,12 @@ function myFunction() {
         }
     }
 }
-// Logout button. Redirect to login page
+// Logout button. Redirect to login page. Disable access whenn no current User is logged in
 var logout = document.getElementById('logout');
-logout.onclick = function() {
-    document.location.href = 'LogIn.html'; 
+logout.onclick = function() { 
+    currentUser = null;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    document.location.href = 'LogIn.html';
 }
 // redirect to main page
 var backToPage = document.getElementById('backToPage');
