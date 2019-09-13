@@ -33,12 +33,15 @@ signup.onclick = function(){
     if (newPassword === repeatPassword && validPassword == true && validMail == true) {
         document.location.href = "mainPage.html" ; 
          //Push to an array wish then refreshes the localStorage for userDatabase
-         newUser.push({userName: newUsername, password: newPassword})
-         currentUser.push({userName: newUsername})
+         newUser.push(new User(newUsername, newPassword))
+         //newUser.push({userName: newUsername, password: newPassword})
+         currentUser.push(new User(newUsername))
+         //currentUser.push({userName: newUsername})
     } 
     console.log(newPassword)
     console.log(repeatPassword)
     console.log(ValidateEmail)
+    console.log(newUser);
 
     //Push newUser list to localStorage
     var userListString = JSON.stringify(newUser);
